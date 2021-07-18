@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+
+    <!--  DispatcherServlet  -->
+    <servlet>
+        <servlet-name>springmvc</servlet-name>
+        <!--
+              1. DispatcherServlet是Spring MVC的核心
+              2. DispatcherServlet用户拦截Http请求,并根据请求的URL调用与之对应的Controller方法,完成响应
+        -->
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:applicationContext.xml</param-value>
+        </init-param>
+        <!--
+            在Web应用启动时自动创建Spring IOC容器,并初始化DispatcherServlet
+            如果忘记配置,不影响项目启动,但是创建容器和初始化DispatcherServlet会在第一次请求的时候起作用
+        -->
+        <load-on-startup>0</load-on-startup>
+
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>springmvc</servlet-name>
+        <!--    /代表拦截所有请求    -->
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>charaterFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>charaterFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+</web-app>

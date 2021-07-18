@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Softeem!</title>
+</head>
+<body>
+    <h1>你喜欢什么样的女孩子?</h1>
+<!--    <form action="/url/postTest" method="post">-->
+<!--    <form action="/url/getData" method="post">-->
+<!--    <form action="/url/pojo" method="post">-->
+<!--        <input name="username"><br>-->
+<!--        <input name="password"/><br>-->
+<!--        <button type="submit">点我</button>-->
+<!--    </form>-->
+
+        <form action="/url/complexData" method="post">
+            <h3>您的姓名</h3>
+            <input name="username"><br>
+            <h3>你中意的女神是:</h3>
+            <select name="lady">
+                <option value="Yoona">林允儿(Yoona)</option>
+                <option value="Krystal">郑秀晶(Krystal)</option>
+                <option value="actress">天海翼</option>
+                <option value="java">Java</option>
+            </select>
+            <div>
+                <h3>你喜欢这个女神的原因</h3>
+                <input type="checkbox" name="reason" value="1">长相甜美
+                <input type="checkbox" name="reason" value="2">平易近人
+                <input type="checkbox" name="reason" value="3">为了学习
+                <input type="checkbox" name="reason" value="4">其他
+            </div>
+            <h3>出生日期</h3>
+            <input name="birthday">
+            <button type="submit">点我</button>
+        </form>
+</body>
+</html>
