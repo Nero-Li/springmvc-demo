@@ -13,6 +13,7 @@ import java.util.Date;
  * @date 2020/12/13 7:01 下午
  */
 public class MyDateConverter implements Converter<String, Date> {
+    @Override
     public Date convert(String s) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         try {

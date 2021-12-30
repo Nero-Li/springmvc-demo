@@ -1,5 +1,14 @@
 package com.softeem.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+
+import java.time.LocalDateTime;
+
 /**
  * description:
  *
@@ -14,6 +23,11 @@ public class User {
     private String password;
 
     private String nickname;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+//    @JsonSerialize(using = LocalDateTimeSerializer.class)
+//    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    private LocalDateTime birthday;
 
     public String getId() {
         return id;
@@ -47,6 +61,14 @@ public class User {
         this.nickname = nickname;
     }
 
+    public LocalDateTime getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(LocalDateTime birthday) {
+        this.birthday = birthday;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -54,6 +76,7 @@ public class User {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", nickname='" + nickname + '\'' +
+                ", birthday=" + birthday +
                 '}';
     }
 }
